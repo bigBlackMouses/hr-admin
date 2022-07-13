@@ -35,6 +35,18 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    // 代理跨域的配置
+    proxy: {
+      // 只要是axios发请求的时候，前面是以/abc开头的，就会被这块匹配到，就会自动帮我们做反向代理
+      // 所有的当前这个人资接口url都是以api开头
+      '/abc': {
+        target: 'http://ihrm.itheima.net/', // 跨域请求的地址
+        changeOrigin: true, // 只有这个值为true的情况下 才表示开启跨域
+        pathRewrite: {
+          '^/abc': ''
+        }
+      }
     }
     // before: require('./mock/mock-server.js')
   },
