@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 500px;
+        height: 500px;
+        background-color: hotpink;
+        float: left;
+      }
+
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script>
+      var a = 1;
+      function fn1() {
+        var a = 2;
+        var b = "22";
+        fn2();
+        function fn2() {
+          var a = 3;
+          fn3();
+          function fn3() {
+            var a = 4;
+            console.log(a); //a的值 ?
+            console.log(b); //b的值 ?
+          }
+        }
+      }
+      fn1();
+    </script>
+  </body>
+</html>

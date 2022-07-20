@@ -1,5 +1,9 @@
 import request from '@/utils/request'
-
+/**
+ *登录
+ * @param {*} data
+ * @returns
+ */
 export function login (data) {
   return request({
     url: '/sys/login',
@@ -7,18 +11,37 @@ export function login (data) {
     data
   })
 }
+/**
+ *获取用户个人资料
+ * @returns
+ */
+export function getInfo () {
+  return request({
+    url: '/sys/profile',
+    method: 'POST'
+  })
+}
 
-// export function getInfo(token) {
-//   return request({
-//     url: '/vue-admin-template/user/info',
-//     method: 'get',
-//     params: { token }
-//   })
-// }
+/** *
+ *
+ * 获取用户的基本信息  现在写它 完全是为了显示头像
+ * **/
+export function getUserDetailById (id) {
+  return request({
+    url: `/sys/user/${id}`
+  })
+}
 
-// export function logout() {
-//   return request({
-//     url: '/vue-admin-template/user/logout',
-//     method: 'post'
-//   })
-// }
+export function logout () {
+  return request({
+    url: '/vue-admin-template/user/logout',
+    method: 'post'
+  })
+}
+
+// 获取简单列表
+export const getSimpleUserList = () => {
+  return request({
+    url: '/sys/user/simple'
+  })
+}
